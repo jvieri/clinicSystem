@@ -74,6 +74,9 @@ builder.Services.AddDbContext<ClinicDbContext>(options =>
 // Data seeder
 builder.Services.AddScoped<ApiSitemaClinico.Clinic.Infrastructure.Services.IDataSeeder, ApiSitemaClinico.Clinic.Infrastructure.Services.DataSeeder>();
 
+// Unit of Work
+builder.Services.AddScoped<ApiSitemaClinico.Clinic.Domain.Interfaces.IUnitOfWork, ApiSitemaClinico.Clinic.Infrastructure.Persistence.UnitOfWork>();
+
 // MediatR, AutoMapper and FluentValidation wiring require packages and assembly markers in real project
 // Register MediatR, AutoMapper and FluentValidation scanning application assembly
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ApiSitemaClinico.Clinic.Application.AssemblyMarker).Assembly));
